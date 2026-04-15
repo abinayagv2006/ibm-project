@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaTech | Mobile Intelligence</title>
+
+<style>
+:root {
+  --bg-color: #f4f7f9;
+  --navy: #1e2a38;
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --primary-blue: #2c5f9e;
+  --accent-teal: #17a2b8;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg-color);
+  color: #333;
+}
+
+/* Login */
+#loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #1a3a5f;
+}
+
+/* Dashboard */
+#dashboardPage { display: none; }
+
+.navbar {
+  background: white;
+  padding: 12px 40px;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.logout-btn {
+  border: 1px solid red;
+  color: red;
+  padding: 6px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Layout */
+.container {
+  padding: 30px;
+}
+
+/* KPI */
+.kpi-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.kpi-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+/* Cards */
+.visual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+.card-header {
+  padding: 10px;
+  background: #eee;
+  font-weight: bold;
+}
+
+img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+</style>
+</head>
+
+<body>
+
+<div id="loginPage">
+  <div class="login-box">
+    <h2>NovaTech | Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+</div>
+
+<div id="dashboardPage">
+  <div class="navbar">
+    <div class="brand">📊 NovaTech</div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="container">
+
+    <div class="kpi-container">
+      <div class="kpi-card">Revenue: ₹16.4M</div>
+      <div class="kpi-card">Units: 512</div>
+      <div class="kpi-card">Returns: 26.1%</div>
+      <div class="kpi-card">CSAT: 3.2</div>
+    </div>
+
+    <div class="visual-grid">
+      <div class="card">
+        <div class="card-header">Chart 1</div>
+        <img src="s1.png">
+      </div>
+
+      <div class="card">
+        <div class="card-header">Chart 2</div>
+        <img src="s2.png">
+      </div>
+
+      <div class="card">
+        <div class="card-header">Chart 3</div>
+        <img src="s3.png">
+      </div>
+
+      <div class="card">
+        <div class="card-header">Chart 4</div>
+        <img src="s4.png">
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+function login() {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  if(user === "admin" && pass === "1234") {
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("dashboardPage").style.display = "block";
+  } else {
+    alert("Invalid Credentials");
+  }
+}
+
+function logout() {
+  document.getElementById("loginPage").style.display = "flex";
+  document.getElementById("dashboardPage").style.display = "none";
+}
+</script>
+
+</body>
+</html>
